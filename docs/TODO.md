@@ -30,7 +30,7 @@ Deliverable: first measured HPS CPU kernel table, with reproducible inputs.
 
 ## Session 3: full TinyViT feasibility and shape inventory
 
-- [ ] Freeze TinyViT-5M 224x224, batch=1, checkpoint type/hash and source revision.
+- [ ] Freeze TinyViT-21M INT8, 224x224, batch=1, checkpoint type/hash and source revision.
 - [ ] Run the official FP32 reference on desktop with fixed preprocessing/images.
 - [ ] Export logits, top-1/top-5 and selected intermediate tensors.
 - [ ] Establish a CPU runtime that actually runs on 32-bit Cortex-A9 Linux.

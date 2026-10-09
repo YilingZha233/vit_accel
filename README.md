@@ -7,10 +7,9 @@ and end-to-end evaluation. Hardware implementation remains in
 Start with [the task list](docs/TODO.md), [repository analysis](docs/teammate_review.md),
 [measurement protocol](docs/baseline_plan.md), and [Git/Windows instructions](docs/setup.md).
 
-**Presentation review:** the slides select TinyViT-21M, while the original starter
-plan proposed 5M. Confirm the variant with the team. The [CPU profile report
-specification](docs/cpu_profile_report.md) distinguishes existing kernel tools
-from the missing full-layer, full-model and HPS measurements.
+**Confirmed scope:** TinyViT-21M with INT8 operands. The [step-by-step measurement
+guide](docs/measurement_steps.md) separates Mac preparation, HPS measurements,
+and full-model deployment. The full HPS model runtime is not present here.
 
 ## What works now
 

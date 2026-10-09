@@ -29,8 +29,8 @@ py -3 scripts/generate_vectors.py
 
 Use WSL or a Linux development machine for the POSIX C benchmark development
 build. To measure HPS, copy the C source and vector directories to the board,
-compile there with `gcc -O3 -std=c11 -Wall -Wextra bench_matmul.c -o bench_matmul`,
-and run against the same vector directories. Very old BSPs may require `-lrt`.
+compile there with `gcc -O3 -std=c11 -Wall -Wextra bench_matmul.c -o bench_matmul -lm`,
+and run against the same vector directories. Very old BSPs may also require `-lrt`.
 Record the build command and compiler version. A cross build must use the BSP's
 ARMv7 Linux ABI/sysroot, not a bare-metal toolchain or an AArch64 compiler.
 

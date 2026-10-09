@@ -4,6 +4,7 @@ __pycache__/
 *.py[cod]
 build/
 data/generated/
+data/layers/
 data/images/
 models/checkpoints/
 external/

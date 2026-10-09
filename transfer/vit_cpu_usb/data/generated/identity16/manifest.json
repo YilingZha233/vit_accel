@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "case": "identity16",
+  "seed": 496,
+  "K_output_rows": 16,
+  "N_contraction": 16,
+  "M_columns": 16,
+  "q16": 32768,
+  "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+  "rtl_vs_full_mismatches": 0,
+  "sha256": {
+    "weights.banked.bin": "c9379f69013d924dcc1a2f332ffe27625d10b4f9b91d0f7e04df305af1336232",
+    "inputs.banked.bin": "00b461398781228015ccc5acdec6b796dfb245e91f668065630955d60d78c1f4",
+    "expected.full.bin": "2bae3a9530e35152c19d73f13f6c0e22cb92f22ce8aa895796711f52b8f7f516",
+    "expected.rtl.bin": "2bae3a9530e35152c19d73f13f6c0e22cb92f22ce8aa895796711f52b8f7f516",
+    "expected.rtl.banked.bin": "f3326ac1f553748aa1247fc1ed902b773d232149ec7ec915070d6b02aef5b069",
+    "input.txt": "ac7fde7779a7159c4a6620206c0f75ebdc472dc55dc35c4c8130b0b71fe89664"
+  },
+  "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+}

@@ -1,0 +1,18 @@
+{
+  "case": "stage1_mlp_fc2",
+  "model": "tiny_vit_21m_224",
+  "K_output_rows": 192,
+  "N_contraction": 768,
+  "M_columns": 784,
+  "q16": 128,
+  "seed": 496,
+  "numpy_version": "1.24.2",
+  "data_kind": "synthetic_int8",
+  "scope": "GEMM only; excludes bias/nonlinearities; not an FPGA-sized transaction",
+  "rtl_vs_full_mismatches": 127595,
+  "sha256": {
+    "input.txt": "b03b31dfb2bf91ee91ba2d0cb7408d70f7364994d8e7c30f65927fa761195726",
+    "expected.full.bin": "719c05f4b339dfaf06b7fb3e80ca003854748fd194e45e73450f908fa44b6a85",
+    "expected.rtl.bin": "1929c2d65f69b6277d63d0894ff8e307b58def49cb39020f24f221e992d48579"
+  }
+}

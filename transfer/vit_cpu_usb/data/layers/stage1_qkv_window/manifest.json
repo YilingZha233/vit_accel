@@ -1,0 +1,18 @@
+{
+  "case": "stage1_qkv_window",
+  "model": "tiny_vit_21m_224",
+  "K_output_rows": 576,
+  "N_contraction": 192,
+  "M_columns": 49,
+  "q16": 128,
+  "seed": 496,
+  "numpy_version": "1.24.2",
+  "data_kind": "synthetic_int8",
+  "scope": "GEMM only; excludes bias/nonlinearities; not an FPGA-sized transaction",
+  "rtl_vs_full_mismatches": 22695,
+  "sha256": {
+    "input.txt": "024638c022e7d431d8730b9fea2c51a2aeded985919ce5617532ef65bdecf34c",
+    "expected.full.bin": "5a417f9d6cdaa7b8d1d0346112c5dd9e5419eb2b33fb9afac51d5ea517d173c6",
+    "expected.rtl.bin": "384cba3a907bc602fd9ef11d2597bdf69c0da6faa5d00707a5581e10efcaa3ca"
+  }
+}

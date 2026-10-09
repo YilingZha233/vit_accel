@@ -11,10 +11,15 @@ and profiling completed (page 7). Those implementation artifacts and raw
 measurements are absent from the local baseline starter. They may exist with
 another teammate. Obtain them before recreating the runtime.
 
-Earlier local documents proposed 5M for bring-up. That is not confirmed as the
-team's final model. The standalone integer kernels are model-independent, but
-layer dimensions and model latency are not. Freeze the model, resolution,
-checkpoint, preprocessing, runtime and precision before collecting the report.
+The team has now confirmed TinyViT-21M with INT8; earlier 5M suggestions are
+superseded. The standalone integer kernels are model-independent, but layer
+dimensions and model latency are not. Freeze resolution, checkpoint,
+preprocessing, runtime and the complete quantization rules before the report.
+
+See [measurement_steps.md](measurement_steps.md) for the executable workflow.
+The subsequent implementation adds full-layer vector generation, raw samples,
+grouped timing, mean/dispersion, and a CPU suite runner; those items in the
+original audit below are now addressed. Full HPS model inference remains absent.
 
 For 498 ms, recover: K/N/M, batch and call count, dtype, CPU target/clock,
 implementation/library, compiler flags, thread count, warmups, repetitions,

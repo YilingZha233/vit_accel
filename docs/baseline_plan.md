@@ -1,14 +1,13 @@
 # Baseline and evaluation protocol
 
-**Model-selection update (2026-10-09):** the supplied presentation selects
-TinyViT-21M, whereas the plan below proposed 5M for bring-up. The team must confirm
-the final variant before using model-specific shapes or speed estimates. See
+**Model-selection update (2026-10-09):** the team confirmed TinyViT-21M and INT8.
+The earlier 5M suggestion is superseded. See
 [the CPU report audit](cpu_profile_report.md) for the missing measurements and
 the short first-pass plan. No existing small-kernel timings are full-model results.
 
 ## Concrete project objective
 
-Demonstrate batch-1 TinyViT-5M classification at 224x224 on the DE1-SoC, with
+Demonstrate batch-1 TinyViT-21M classification at 224x224 on the DE1-SoC, with
 selected operations offloaded to the FPGA. Preserve the agreed integer
 arithmetic exactly at the accelerator boundary and quantify accuracy loss
 relative to the original FP32 checkpoint. Aim for at least 1.5x end-to-end
@@ -91,16 +90,16 @@ p95 latency separately; inverse median is not measured sustained throughput.
 ## Speed targets and research basis
 
 The [official model table](https://github.com/microsoft/Cream/tree/main/TinyViT)
-lists TinyViT-5M at 224x224 as 5.4M parameters and 1.3G MACs. Published desktop/GPU
+lists TinyViT-21M at 224x224 as 21M parameters and 4.3G MACs. Published desktop/GPU
 throughput is not a DE1-SoC measurement. Our theoretical examples below are
 derived estimates, not paper benchmarks.
 
 For 256 PEs at an assumed 100 MHz, one useful MAC/PE/cycle gives 25.6 GMAC/s.
-Mapping all 1.3G MACs ideally would take about 50.8 ms. This assumes all operations
+Mapping all 4.3G MACs ideally would take about 168 ms. This assumes all operations
 map, perfect utilization, and zero transfers/overhead. The source forces
 multipliers into logic, and no achieved clock/resource report is present.
 Theoretical peak therefore cannot establish an inference target. At 30 FPS,
-the 33.3 ms budget would require approximately 39 GMAC/s to execute all 1.3G
+the 33.3 ms budget would require approximately 129 GMAC/s to execute all 4.3G
 MACs in that interval. This illustrates why a 30 FPS commitment is premature;
 it is not a proof about every possible CPU-FPGA architecture.
 

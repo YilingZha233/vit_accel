@@ -1,0 +1,162 @@
+[
+  {
+    "schema_version": 1,
+    "case": "identity16",
+    "seed": 496,
+    "K_output_rows": 16,
+    "N_contraction": 16,
+    "M_columns": 16,
+    "q16": 32768,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 0,
+    "sha256": {
+      "weights.banked.bin": "c9379f69013d924dcc1a2f332ffe27625d10b4f9b91d0f7e04df305af1336232",
+      "inputs.banked.bin": "00b461398781228015ccc5acdec6b796dfb245e91f668065630955d60d78c1f4",
+      "expected.full.bin": "2bae3a9530e35152c19d73f13f6c0e22cb92f22ce8aa895796711f52b8f7f516",
+      "expected.rtl.bin": "2bae3a9530e35152c19d73f13f6c0e22cb92f22ce8aa895796711f52b8f7f516",
+      "expected.rtl.banked.bin": "f3326ac1f553748aa1247fc1ed902b773d232149ec7ec915070d6b02aef5b069",
+      "input.txt": "ac7fde7779a7159c4a6620206c0f75ebdc472dc55dc35c4c8130b0b71fe89664"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "rounding_gap",
+    "seed": 496,
+    "K_output_rows": 1,
+    "N_contraction": 32,
+    "M_columns": 1,
+    "q16": 32768,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 1,
+    "sha256": {
+      "weights.banked.bin": "cfaa47129786194fa1fd46edadb952a8003ca7633fe778a3a19d8b23c157ab99",
+      "inputs.banked.bin": "e2316f795cd8f87b4501a86d00978bd9c642ec363c9263706f3613fdefa8c60e",
+      "expected.full.bin": "4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a",
+      "expected.rtl.bin": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "expected.rtl.banked.bin": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad",
+      "input.txt": "1651ed2978c392a5f51b2dcaf85172b766773664456b60cd3b27c50a379dc7b4"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "saturation_cancel",
+    "seed": 496,
+    "K_output_rows": 1,
+    "N_contraction": 32,
+    "M_columns": 1,
+    "q16": 32768,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 1,
+    "sha256": {
+      "weights.banked.bin": "29bfdd7280ea4a6979c645783634c50f414a06032213b82b3bcf566953aa256d",
+      "inputs.banked.bin": "c78cf64434b491c070363e870a9f2c4f358e8679ba1a32d91791c7f0e88ba4ac",
+      "expected.full.bin": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "expected.rtl.bin": "a8100ae6aa1940d0b663bb31cd466142ebbdbd5187131b92d93818987832eb89",
+      "expected.rtl.banked.bin": "dbd45121513f1dc88948043c5ad4035a0f853ced6a52de76b2c64fcdc72d747d",
+      "input.txt": "26bbc47a68f5db36f07e15e2859d019a8f39cfa63afd9f0dfe064a1fd2197d42"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "zeros",
+    "seed": 496,
+    "K_output_rows": 16,
+    "N_contraction": 16,
+    "M_columns": 5,
+    "q16": 65535,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 0,
+    "sha256": {
+      "weights.banked.bin": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "inputs.banked.bin": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "expected.full.bin": "5b6fb58e61fa475939767d68a446f97f1bff02c0e5935a3ea8bb51e6515783d8",
+      "expected.rtl.bin": "5b6fb58e61fa475939767d68a446f97f1bff02c0e5935a3ea8bb51e6515783d8",
+      "expected.rtl.banked.bin": "e5a00aa9991ac8a5ee3109844d84a55583bd20572ad3ffcd42792f3c36b183ad",
+      "input.txt": "2b93cd156905ada103509a140fabc231972e755876a0337729cfb67aa051fa54"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "random_single",
+    "seed": 496,
+    "K_output_rows": 16,
+    "N_contraction": 16,
+    "M_columns": 16,
+    "q16": 1024,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 0,
+    "sha256": {
+      "weights.banked.bin": "c445454cf4c4e8ff9de0b1f82464637d028197bf3c7a18652ead585e000ad504",
+      "inputs.banked.bin": "79579a6dad3078b28b56efc9052d26ffe0a1f00f6773e63ee17a52787f4c284b",
+      "expected.full.bin": "e2b7e2ef1677cddcda5eb15e671f7b37741c61ed143d60a271b58480598aa644",
+      "expected.rtl.bin": "e2b7e2ef1677cddcda5eb15e671f7b37741c61ed143d60a271b58480598aa644",
+      "expected.rtl.banked.bin": "153be700b76c5281e80947564c7fdac45589cfbfb725095a17f57b86b75c7277",
+      "input.txt": "5b7f7ff6110cc1f90191b2e65941aba4a70b345deb37d4171d64fc88713052ed"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "random_multi",
+    "seed": 496,
+    "K_output_rows": 32,
+    "N_contraction": 32,
+    "M_columns": 32,
+    "q16": 1024,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 466,
+    "sha256": {
+      "weights.banked.bin": "657771a05db9e5849005c30dd77e587382aaf9e27048c375fd653eed51d3b2cf",
+      "inputs.banked.bin": "fa05d70005d50a1fae094225d0f7ed3fec912daa8f47bcd1d1a8336d2c75916f",
+      "expected.full.bin": "645dc270d7a2bdf9320250a8cd21b4fd0aedc789a10cd9b7681131c34fcc9ebc",
+      "expected.rtl.bin": "85936886ae4f4db24c1305f9daaec959c3790e5fe16345d7f85c23d635aadf53",
+      "expected.rtl.banked.bin": "6a91472d3afceb80ee2026faf41eaa59a702d4abbeab092cc68c62a01664b283",
+      "input.txt": "eaaa0ff448d1e52c3568fcd23ac914581317ff4d82e331affede7139243dbf57"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "partial_rows",
+    "seed": 496,
+    "K_output_rows": 25,
+    "N_contraction": 16,
+    "M_columns": 18,
+    "q16": 1024,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 0,
+    "sha256": {
+      "weights.banked.bin": "962a286a97e0048ea6a3400b9dd598c14c9e54cd0263447ff00c20ea1f389181",
+      "inputs.banked.bin": "7eae3bed13196a4890a99703a541cf2a65203ee74c27667db75e17dd6ed8f35c",
+      "expected.full.bin": "ad0e8ac5fac0192219f0ac2d5a0e12cf952a37e1c16d8ef1d706eaee16257aeb",
+      "expected.rtl.bin": "ad0e8ac5fac0192219f0ac2d5a0e12cf952a37e1c16d8ef1d706eaee16257aeb",
+      "expected.rtl.banked.bin": "7913596be0c81b357dbf4b3881c108bf7538f2a6f5eed806c51433f04d2dde2d",
+      "input.txt": "9883eaadaa29f7d1346e7bdb9d13b48b6ae6c3eba9482eb59d9dc1e3c1461d4e"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  },
+  {
+    "schema_version": 1,
+    "case": "layer_tile",
+    "seed": 496,
+    "K_output_rows": 16,
+    "N_contraction": 128,
+    "M_columns": 16,
+    "q16": 256,
+    "accelerator_revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+    "rtl_vs_full_mismatches": 170,
+    "sha256": {
+      "weights.banked.bin": "8835fb321d702921ff94346277dbc42c00e2e9be6bebd86df609262c8de3c451",
+      "inputs.banked.bin": "d86cbf91588092acb71103dc36986d3deb3a69524fcc09b55e6e55f57b21c14a",
+      "expected.full.bin": "23f2a25ec909f00576510490db1d078e7786c30d7114f430578411a6e5dbc246",
+      "expected.rtl.bin": "7137c956ae2fe5cd5d3d68a9af120912b5072a497785f616187ed6a0b371a586",
+      "expected.rtl.banked.bin": "355ecd47094978c0eb1a87843efa4615539e4f7394c52681974bc6f3da469374",
+      "input.txt": "341a984c489257f8ee7886e42e466ff275239d380d0732ba31668cd7507034dd"
+    },
+    "note": "Software references only; no FPGA measurement. Banked files use accelerator-local byte layout; no CPU address scaling implied."
+  }
+]
