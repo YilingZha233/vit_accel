@@ -1,0 +1,26 @@
+{
+  "contract_status": "source-derived proposal; confirm with teammate and generated Platform Designer system",
+  "repository": "https://github.com/j3rryhu/matmul-accel",
+  "revision": "966e3459be039e9e51f74cff9ce833c085a0178a",
+  "equation": "Y[K,M] = W[K,N] @ X[N,M]",
+  "array_rows": 16,
+  "array_cols": 16,
+  "operand_dtype": "signed int8",
+  "output_dtype": "signed int8",
+  "pe_accumulator_bits": 32,
+  "full_precision_across_contraction_tiles": false,
+  "scale": "unsigned Q0.16 integer 0..65535; arithmetic shift by 16; saturate each tile and merge",
+  "avalon_data_bits_in_source": 128,
+  "local_address_units": "bytes",
+  "hps_physical_base": null,
+  "platform_designer_address_units": null,
+  "measured_fpga_clock_hz": null,
+  "regions": {
+    "weights": {"base": 4096, "banks": 16, "bytes_per_bank": 1024},
+    "inputs": {"base": 20480, "banks": 16, "bytes_per_bank": 256},
+    "outputs": {"base": 28672, "banks": 16, "bytes_per_bank": 128}
+  },
+  "register_offsets": {"control": 0, "weight_rows": 4, "weight_cols": 8,
+    "input_max_addr": 12, "input_cols": 16, "status": 20, "output_scale": 24},
+  "status": {"busy_bit": 0, "done_bit": 1, "done_read_to_clear": true}
+}

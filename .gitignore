@@ -1,0 +1,16 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+build/
+data/generated/
+data/images/
+models/checkpoints/
+external/
+results/raw/
+*.sof
+*.rbf
+*.qdb
+db/
+incremental_db/
+output_files/
