@@ -144,6 +144,11 @@ This includes loading, initial inference, warmups and timed execution. It is not
 
 ## D. Operator profiling
 
+- **Gemm:** activation × trained weights, such as QKV projections and MLP Linear layers.
+- **MatMul:** activation × activation, such as **Q × Kᵀ** and **softmax(scores) × V** in attention.
+
+However, those are **roles in this model**, not universal definitions of the operator names. Confirm individual layers in the exported graph before assigning FPGA operations.
+
 Two-thread instrumented ncnn runs, five measured images after one initial and three warmup passes. Each image has 899 distinct logged layers and 901 calls in the FP32 summary; two Split layers run twice. Deployed-layer execution intervals include fused internal work and are not primitive self-times. Printed resolution is 0.01 ms.
 
 | Operator group | FP32 ms/image | FP32 logged share % | INT8-model ms/image | INT8 logged share % |
