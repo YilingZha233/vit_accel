@@ -1,5 +1,8 @@
 .DS_Store
 .venv/
+.venv-model/
+data/manifests/
+models/exports/
 __pycache__/
 *.py[cod]
 build/

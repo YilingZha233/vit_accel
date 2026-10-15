@@ -11,6 +11,13 @@ Start with [the task list](docs/TODO.md), [repository analysis](docs/teammate_re
 guide](docs/measurement_steps.md) separates Mac preparation, HPS measurements,
 and full-model deployment. The full HPS model runtime is not present here.
 
+**Next steps after the first board run:** follow the
+[Windows/WSL and HPS command sheet](docs/windows_hps_commands.md) for transferable
+code and execution commands, and the
+[full CPU baseline and quantization guide](docs/full_cpu_baseline_steps.md) for
+model accuracy, HPS inference, operator profiling, memory measurements and the
+quantization comparison matrix. It includes the required final report tables.
+
 ## What works now
 
 - Pure Python integer reference with no third-party packages.
@@ -20,10 +27,12 @@ and full-model deployment. The full HPS model runtime is not present here.
 - A C single-thread starting baseline that verifies against the Python vectors.
 - Comparison of an accelerator output-bank dump with the selected golden model.
 
-No HPS timings, FPGA simulation results, FPGA timings, or full TinyViT inference
-results have been measured by this project yet. Desktop timings are development
-checks and must be labelled with the actual host. The C kernel is a simple
-starting baseline; an optimized HPS implementation is required for final claims.
+The [first HPS kernel run](results/reports/hps_board_run1.md) is measured and
+audited: 11 synthetic cases under two arithmetic contracts. Full TinyViT
+inference/accuracy and FPGA simulation/timing evidence are still absent from
+this folder. Desktop timings are development checks and must be labelled with
+the actual host. The C kernel is a simple starting baseline; an optimized HPS
+implementation is required for final performance claims.
 
 ## Quick start on macOS/Linux or WSL
 

@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(tinyvit_cpu_runner LANGUAGES CXX)
+find_package(ncnn REQUIRED)
+add_executable(model_runner main.cpp)
+target_compile_features(model_runner PRIVATE cxx_std_11)
+target_compile_options(model_runner PRIVATE -Wall -Wextra)
+target_link_libraries(model_runner PRIVATE ncnn)

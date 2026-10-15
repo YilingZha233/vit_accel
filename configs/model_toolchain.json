@@ -1,0 +1,7 @@
+{
+  "cream_commit": "4a13c4091e78f9abd2160e7e01c02e48c1cf8fb9",
+  "ncnn_commit": "c15904bb8918187ec100f1ebe708942af83b84be",
+  "pnnx_version": "20260526",
+  "python_requirements": "configs/model_requirements.txt",
+  "scope": "Desktop tooling validation; does not certify HPS BSP compatibility or trained-checkpoint accuracy"
+}

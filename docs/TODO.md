@@ -1,5 +1,11 @@
 # Baseline work checklist
 
+**Status update (2026-10-15):** the preliminary HPS kernel run is complete; see
+[the board report](../results/reports/hps_board_run1.md). The checklist below
+contains earlier planning items, not a current measurement inventory. Use the
+[full CPU baseline and quantization guide](full_cpu_baseline_steps.md) for the
+next work sessions and required final metrics.
+
 These are ordered work sessions, not promised completion dates. Board/runtime
 availability can change elapsed time. Start desktop work while board setup proceeds.
 

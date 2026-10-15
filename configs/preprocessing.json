@@ -1,0 +1,10 @@
+{
+  "input_size": 224,
+  "resize_short_edge": 256,
+  "interpolation": "bicubic",
+  "crop": "center",
+  "color": "RGB",
+  "mean": [0.485, 0.456, 0.406],
+  "std": [0.229, 0.224, 0.225],
+  "note": "Official default evaluation transform; verify against the chosen checkpoint config."
+}
