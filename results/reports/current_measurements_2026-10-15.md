@@ -250,3 +250,96 @@ Each operator report contains `layers.csv`, `operator_groups.csv` and `summary.j
 10. **Reproducibility:** archive current raw results, binaries, hashes, exact commands, source/build flags, model/input hashes and environment. Board calendar timestamps are unreliable; use monotonic durations and externally recorded session dates.
 
 Current supported conclusion: the native ncnn INT8 pilot preserves all ten development predictions, reduces two-thread model latency from 4.481 s to 3.199 s, reduces deployed model storage by 67.2%, and reduces benchmark peak process RSS by about 49.5%. GELU is the largest remaining logged operator group. These are HPS CPU pilot measurements, not final accuracy validation or FPGA acceleration results.
+
+## Appended analysis and engineering summary
+
+The following summarizes the supplied analysis of this report. It interprets existing measurements and proposes next steps; it does not introduce new measurements. Chart-interface text and conversational offers from the supplied text are omitted.
+
+### 1. CPU baseline and practical reference
+
+TinyViT-21M successfully runs on the Cyclone V HPS CPU using ncnn. The best measured pilot configuration is native INT8 with two threads: **3.199 seconds/image and 0.313 inference images/s**, compared with FP32 at **4.481 seconds/image and 0.223 images/s**. This is below real-time video throughput.
+
+Two threads provide approximately 1.71× FP32 and 1.59× INT8 speedup over one thread. Native INT8 reduces two-thread latency by 28.6%, peak process RSS by approximately 49.5% (155 to 78 MiB), and model storage by 67.2% (109 to 36 MiB).
+
+Use two-thread native INT8 as the practical runtime CPU performance reference, while retaining FP32 as the numerical reference. An FPGA comparison also needs matched arithmetic or explicitly documented numerical differences and acceptance criteria.
+
+### 2. Bottlenecks and implications for acceleration
+
+| INT8 runtime group | Logged ms/image | Logged share |
+|---|---:|---:|
+| GELU | 986.4 | 30.7% |
+| Gemm | 867.7 | 27.0% |
+| Convolution | 279.3 | 8.7% |
+| MatMul | 226.1 | 7.0% |
+| Softmax | 135.0 | 4.2% |
+
+GELU is the largest remaining logged operator group after conversion. Likely matrix-accelerator targets include Gemm for learned QKV/MLP projections and MatMul for attention products. Confirm each layer's graph mapping before assigning hardware work. Gemm + MatMul account for **34.07% of logged INT8 operator time**.
+
+For illustration, Amdahl's model is:
+
+```text
+S = 1 / ((1 - f) + f / s)
+
+f = fraction of original execution time accelerated
+s = speedup of that portion
+```
+
+Using the logged fraction f ≈ 0.3407 as a proxy gives approximately **1.44× overall speedup** for 10× faster matrix operations, or an illustrative latency of **2.22 seconds** from the 3.199-second pilot baseline. Infinite matrix speed gives approximately **1.52×** in this simplified model.
+
+These are hypothetical estimates, not measured FPGA results or strict wall-time bounds. The fraction comes from an instrumented logged-layer denominator, whereas headline latency comes from an uninstrumented run. The estimates assume unchanged remaining work and ignore DMA, synchronization, conversion and integration overhead. Fusion, GELU optimization, reduced data movement or changed execution paths could alter the accelerated fraction and outcome.
+
+### 3. Quantization and accumulator design
+
+| Numerical scheme | Pilot top-1 | Logit RMSE | Interpretation |
+|---|---:|---:|---|
+| Q1, per-tensor | 100% | 0.238 | Passed ten-image smoke check |
+| Q2, per-channel weights | 100% | 0.244 | Passed ten-image smoke check |
+| Q3, Q16 full accumulation | 100% | 0.524 | Passed smoke check with greater logit distortion |
+| Q4, Q16 per-tile requantization and saturated merge | 0% | 1.482 | Reject this configuration on the pilot |
+
+The current simulated RTL-compatible Q4 arithmetic substantially degrades predictions. This is evidence about the numerical scheme, not a measured failure of an executed FPGA implementation. Repeated floor-rounding and saturated merging must be isolated to explain their separate contributions.
+
+Preserve the 16×16 array as a hardware target, but evaluate a revised datapath:
+
+```text
+INT8 multiplication
+→ wide accumulation across all contraction tiles
+→ one final requantization
+→ output activation
+```
+
+A 16×16 systolic array does not require each partial result to be reduced to INT8. INT32 is a candidate accumulator width; verify range bounds for the actual contraction lengths, bias and scaling before freezing RTL. Keep Q4's original results as evidence and assign a new configuration ID to revised arithmetic.
+
+The ten development images do not establish representative ImageNet accuracy for Q1–Q3 or native INT8. Expand calibration and evaluation before accepting final quality claims.
+
+### 4. Separate kernel and integrated comparisons
+
+The synthetic simple-C full-accumulation baseline measured approximately 22.77 ms / 0.238 GMAC/s for one QKV window, 619.34 ms / 0.187 GMAC/s for FC1, and 971.23 ms / 0.119 GMAC/s for FC2. These single-thread results are useful arithmetic references, but are not equivalent to optimized ncnn execution.
+
+Maintain three comparisons:
+
+1. FPGA matrix arithmetic versus an equivalent-contract CPU matrix kernel.
+2. Complete FPGA offload, including packing, DMA, cache maintenance, launch/wait and unpacking, versus optimized CPU execution of equivalent work.
+3. Integrated ARM+FPGA TinyViT versus ARM-only TinyViT with matched model, inputs, numerical acceptance criteria and timing scope.
+
+Only the third supports a complete-model acceleration claim. Current measurements do not demonstrate FPGA acceleration.
+
+### 5. Engineering priorities
+
+| Priority | Task | Purpose |
+|---|---|---|
+| P0 | Revise and validate Q4 accumulation/requantization | Establish acceptable hardware numerical behavior |
+| P0 | Map runtime layers to TinyViT stages and source operations | Identify exactly what offload replaces |
+| P1 | Capture real matrix operands and profile data movement | Establish realistic shapes, ranges and throughput requirements |
+| P1 | Measure DMA, packing and launch overhead | Determine whether complete offload is worthwhile |
+| P1 | Expand disjoint calibration and evaluation datasets | Assess quality beyond the smoke test |
+| P2 | Investigate GELU optimization, conversion overhead and fusion | Address the largest remaining logged group |
+| P2 | Repeat independent timing sessions | Establish performance repeatability |
+
+Evaluate the array across transformer Stages 2, 3 and 4 rather than only the 192-channel Stage 2 examples. Shapes, padding, reuse, utilization and memory traffic differ across stages.
+
+### 6. Suggested capstone wording and next milestone
+
+The initial TinyViT-21M CPU baseline demonstrates deployment on the DE1-SoC Cyclone V ARM HPS using ncnn. Native INT8 conversion reduces two-thread inference latency from 4.481 seconds to 3.199 seconds, peak process RSS by approximately 49.5%, and deployed model storage by 67.2%. Preliminary profiling identifies GELU and Gemm as the dominant remaining runtime groups. Numerical experiments show that the tested per-tile requantization and saturated-merge scheme can severely degrade predictions, motivating evaluation of wide accumulation with final requantization. These results establish a CPU pilot reference; representative accuracy, verified precision coverage, FPGA execution, transfer overhead and integrated acceleration remain to be evaluated.
+
+The next hardware milestone is to demonstrate **one real TinyViT matrix operation executing correctly and faster on FPGA after including data movement and control costs**, then extend the design based on measured stage-level benefit. Accumulator arithmetic is as important as raw MAC throughput, and matrix-only acceleration should be assessed against the measured remaining CPU workload.
