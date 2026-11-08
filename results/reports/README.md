@@ -1,17 +1,10 @@
-# Reviewed reports
+# Measurement reports
 
-Store human-reviewed summaries and small plots here. Label desktop development
-results explicitly. The [first HPS kernel report](hps_board_run1.md) and its
-[numeric audit](hps_board_run1_audit.json) are available. Full-model and FPGA
-measurements remain pending in this folder.
+- **Latest accuracy evidence:** [1,000-image HPS FP32/native-INT8 report, imported 8 November 2026](hps_accuracy1000_2026-11-08.md), [numeric audit](hps_accuracy1000_2026-11-08_audit.json), [preserved raw import](../raw/hps_accuracy1000_2026-11-08/).
+- [Progress tracker](cpu_baseline_progress_audit.md): current A–F status followed by historical audit.
+- [October measurement snapshot](current_measurements_2026-10-15.md): kernel, full-model pilots, numerical quantization, operator profiles and engineering analysis.
+- [First HPS kernel report](hps_board_run1.md) and [numeric audit](hps_board_run1_audit.json).
 
-Use the [full CPU baseline guide](../../docs/full_cpu_baseline_steps.md) for the
-remaining measurements, quantization experiments and final report tables.
+The 1,000-image study measured 84.9% FP32 versus 83.6% native INT8 top-1 accuracy (1.3 percentage-point loss) on the same Kaggle ImageNet-mini validation subset. HPS CPU execution is measured; FPGA-fabric acceleration remains pending. Native ncnn INT8 is distinct from Q1–Q4 Python numerical simulations.
 
-Suggested final tables:
-
-| Operation/shape | Target | Arithmetic | Median ms | p95 ms | Correctness | Notes |
-|---|---|---|---|---|---|---|
-| Pending | Pending | Pending | — | — | Not measured | |
-
-Include the run manifest and raw-data location for every reported result.
+Use the [full CPU baseline guide](../../docs/full_cpu_baseline_steps.md) for remaining measurements. Preserve raw evidence, configuration, dataset scope and run IDs with every reported result.

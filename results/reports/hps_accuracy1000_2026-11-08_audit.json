@@ -1,0 +1,245 @@
+{
+  "fp32": {
+    "n": 1000,
+    "failed": 0,
+    "top1_correct": 849,
+    "top5_correct": 970,
+    "top1_pct": 84.9,
+    "top5_pct": 97.0,
+    "top1_wilson95": [
+      82.54750432083057,
+      86.98538793687767
+    ],
+    "top5_wilson95": [
+      95.74965858524128,
+      97.89062611711653
+    ],
+    "evaluation_weighted_mean_ms": 4484.10120287,
+    "max_batch_process_peak_rss_mib": 149.484375,
+    "summed_service_loop_seconds": 4490.25584047
+  },
+  "native_int8": {
+    "n": 1000,
+    "failed": 0,
+    "top1_correct": 836,
+    "top5_correct": 966,
+    "top1_pct": 83.6,
+    "top5_pct": 96.6,
+    "top1_wilson95": [
+      81.17726060331938,
+      85.7655812264513
+    ],
+    "top5_wilson95": [
+      95.28648097546889,
+      97.55686513367738
+    ],
+    "evaluation_weighted_mean_ms": 3201.3164439399998,
+    "max_batch_process_peak_rss_mib": 72.96484375,
+    "summed_service_loop_seconds": 3207.42234088
+  },
+  "top1_loss_pp": 1.3000000000000114,
+  "top5_loss_pp": 0.4000000000000057,
+  "status": "passed",
+  "evaluation_unique_classes": 676,
+  "calibration_n": 10,
+  "per_batch": [
+    {
+      "variant": "fp32",
+      "batch": 0,
+      "completed": 100,
+      "top1_correct": 85,
+      "top5_correct": 97
+    },
+    {
+      "variant": "fp32",
+      "batch": 1,
+      "completed": 100,
+      "top1_correct": 85,
+      "top5_correct": 94
+    },
+    {
+      "variant": "fp32",
+      "batch": 2,
+      "completed": 100,
+      "top1_correct": 86,
+      "top5_correct": 99
+    },
+    {
+      "variant": "fp32",
+      "batch": 3,
+      "completed": 100,
+      "top1_correct": 87,
+      "top5_correct": 96
+    },
+    {
+      "variant": "fp32",
+      "batch": 4,
+      "completed": 100,
+      "top1_correct": 82,
+      "top5_correct": 95
+    },
+    {
+      "variant": "fp32",
+      "batch": 5,
+      "completed": 100,
+      "top1_correct": 87,
+      "top5_correct": 99
+    },
+    {
+      "variant": "fp32",
+      "batch": 6,
+      "completed": 100,
+      "top1_correct": 79,
+      "top5_correct": 100
+    },
+    {
+      "variant": "fp32",
+      "batch": 7,
+      "completed": 100,
+      "top1_correct": 84,
+      "top5_correct": 97
+    },
+    {
+      "variant": "fp32",
+      "batch": 8,
+      "completed": 100,
+      "top1_correct": 88,
+      "top5_correct": 97
+    },
+    {
+      "variant": "fp32",
+      "batch": 9,
+      "completed": 100,
+      "top1_correct": 86,
+      "top5_correct": 96
+    },
+    {
+      "variant": "int8",
+      "batch": 0,
+      "completed": 100,
+      "top1_correct": 83,
+      "top5_correct": 97
+    },
+    {
+      "variant": "int8",
+      "batch": 1,
+      "completed": 100,
+      "top1_correct": 85,
+      "top5_correct": 94
+    },
+    {
+      "variant": "int8",
+      "batch": 2,
+      "completed": 100,
+      "top1_correct": 86,
+      "top5_correct": 98
+    },
+    {
+      "variant": "int8",
+      "batch": 3,
+      "completed": 100,
+      "top1_correct": 86,
+      "top5_correct": 96
+    },
+    {
+      "variant": "int8",
+      "batch": 4,
+      "completed": 100,
+      "top1_correct": 81,
+      "top5_correct": 94
+    },
+    {
+      "variant": "int8",
+      "batch": 5,
+      "completed": 100,
+      "top1_correct": 84,
+      "top5_correct": 99
+    },
+    {
+      "variant": "int8",
+      "batch": 6,
+      "completed": 100,
+      "top1_correct": 81,
+      "top5_correct": 97
+    },
+    {
+      "variant": "int8",
+      "batch": 7,
+      "completed": 100,
+      "top1_correct": 83,
+      "top5_correct": 97
+    },
+    {
+      "variant": "int8",
+      "batch": 8,
+      "completed": 100,
+      "top1_correct": 84,
+      "top5_correct": 97
+    },
+    {
+      "variant": "int8",
+      "batch": 9,
+      "completed": 100,
+      "top1_correct": 83,
+      "top5_correct": 97
+    }
+  ],
+  "validation": "20 batch counters, exact image order, ARMv7/two-thread/precision scope, 1000 unique IDs/hashes, calibration hash disjointness, supplied summary reconciliation",
+  "limitations": "Original images, binaries and full logits not supplied. Recorded hashes identify artifacts but cannot verify absent file contents. No paired loss CI or overall p95 can be reconstructed from aggregate counts.",
+  "preserved_file_sha256": {
+    "attachments.zip": "6ea09c238d16ec5f319579a241bcfa5f6086bfdddf007e8f2905de699f39a87f",
+    "recovered/MD5SUMS": "d2db75a2ffe3fb684e308e5ff3e05e28278f5d43897276ea0e9ef247766f9a81",
+    "recovered/SHA256SUMS": "5f876c9a12bd2a945ae1419622b46239aba2a816f33897f30f30f1013aac197c",
+    "recovered/bundle.identity": "6707b5b8defdd85024f18817989f53a64754dfb18668019c62b9f4a544c6d48f",
+    "recovered/compact/fp32_batch_00/image_ids.json": "dc8aacfed1359cb1b7666be5fb8a960207f65b74584ed41cc366be39bf5b0f43",
+    "recovered/compact/fp32_batch_00/run.json": "16f9fb93105cd57e02289735709a98ca92f424c168a9cb54431a335aad9a6975",
+    "recovered/compact/fp32_batch_01/image_ids.json": "ae024c1f292610c7969eb88999891bdfe38105d5b5a2bf8ca96eda0cf8d4517b",
+    "recovered/compact/fp32_batch_01/run.json": "0c9620e34588469c563bb593e2d4e3b3b049231c078a4f9d0d9a31aab2ad6ea3",
+    "recovered/compact/fp32_batch_02/image_ids.json": "f1a928b8d4a5c9ecada8d23ee5223f80aa6890f2c2605db642c6ee24e0a9e82d",
+    "recovered/compact/fp32_batch_02/run.json": "bdbdd8974532ea97150b3a2d2b6654b041aeac0c2ab7b25bae6ed06a11c1a0b3",
+    "recovered/compact/fp32_batch_03/image_ids.json": "dddaceec4c730facc334ec2b343abda58f750413c370fd0ff8f7e8ede6b85e21",
+    "recovered/compact/fp32_batch_03/run.json": "95288cf882cfc858337ca68f51224d89f7b118a8b02d82304dffe0e7868da958",
+    "recovered/compact/fp32_batch_04/image_ids.json": "3315d24b8536188a0d1414498e6df579d36a53144578fef3c771c50b20109a61",
+    "recovered/compact/fp32_batch_04/run.json": "83abe09ad8432ef9b74f004be9e3f8b394e0494b30db2cba9fda49a6fc71fe63",
+    "recovered/compact/fp32_batch_05/image_ids.json": "1849a9eac0411a85ed7f6d0011d66398886bc42b1a6123b604d42753bd50dff5",
+    "recovered/compact/fp32_batch_05/run.json": "b9318bb2ce394b42745a4312cd91f673cbcf8678747316c1bc5cad8d8ece33af",
+    "recovered/compact/fp32_batch_06/image_ids.json": "e0b0ab14eab039633c94fcfd52806dd2947431835b62be2d303ef3841b4b1967",
+    "recovered/compact/fp32_batch_06/run.json": "ea69dd85be5299453dc39689ea382d287a6856e5686445f292f66c6033e9cc04",
+    "recovered/compact/fp32_batch_07/image_ids.json": "504e7c556fe6f4b55aae4e1e4f01fc6373732506bf7adac8453c21e294f3bd14",
+    "recovered/compact/fp32_batch_07/run.json": "77a46e6fa0f6bccfa73e01b1be627703f45d2c68ae64b7af55e33b18648519fa",
+    "recovered/compact/fp32_batch_08/image_ids.json": "db087751815a15ff5d96f01fe738148c82fb1497d67613061bdf5f56b066d5c7",
+    "recovered/compact/fp32_batch_08/run.json": "934c4afa8d75e39cb4dd357912ce2905199d7d9de8022644ca9e23ed8afaf711",
+    "recovered/compact/fp32_batch_09/image_ids.json": "237e8335995ec1c23222e3224fc1c05e97f1d111df456c9bda502fac90ad8081",
+    "recovered/compact/fp32_batch_09/run.json": "ad6c0499351d6f765f4580bc59602a92163006c2c03ac6483076dcdd241f7ca0",
+    "recovered/compact/int8_batch_00/image_ids.json": "dc8aacfed1359cb1b7666be5fb8a960207f65b74584ed41cc366be39bf5b0f43",
+    "recovered/compact/int8_batch_00/run.json": "82124a6762cabcc08a05cc60a305e68b1ed9f5b11f17159d27fd8dfca5cad554",
+    "recovered/compact/int8_batch_01/image_ids.json": "ae024c1f292610c7969eb88999891bdfe38105d5b5a2bf8ca96eda0cf8d4517b",
+    "recovered/compact/int8_batch_01/run.json": "481d3e6a653f8689ce68b3b407d178661df3a04cf21bd7ea6d91725f371e9eb2",
+    "recovered/compact/int8_batch_02/image_ids.json": "f1a928b8d4a5c9ecada8d23ee5223f80aa6890f2c2605db642c6ee24e0a9e82d",
+    "recovered/compact/int8_batch_02/run.json": "149bee2b9055bf1ac93d1ebf572b19bcedaf88deed8b53721dc0d702c0d7ea1c",
+    "recovered/compact/int8_batch_03/image_ids.json": "dddaceec4c730facc334ec2b343abda58f750413c370fd0ff8f7e8ede6b85e21",
+    "recovered/compact/int8_batch_03/run.json": "a653167b8789cf88294e614f6092dfc4d0b5fe90cb90b85a5b09074433e10be0",
+    "recovered/compact/int8_batch_04/image_ids.json": "3315d24b8536188a0d1414498e6df579d36a53144578fef3c771c50b20109a61",
+    "recovered/compact/int8_batch_04/run.json": "a5a0790b43c651f4dd1ca04f70d035dd1a503d18fd90119da687355ba9335338",
+    "recovered/compact/int8_batch_05/image_ids.json": "1849a9eac0411a85ed7f6d0011d66398886bc42b1a6123b604d42753bd50dff5",
+    "recovered/compact/int8_batch_05/run.json": "2941d39018d9bbfab213eddcb60923d97f27e2634c0b6324ef2800e91049bada",
+    "recovered/compact/int8_batch_06/image_ids.json": "e0b0ab14eab039633c94fcfd52806dd2947431835b62be2d303ef3841b4b1967",
+    "recovered/compact/int8_batch_06/run.json": "41fd2111e7aac7da02e93db1116318ba609f2bfba3fb56206df4d43a58151fad",
+    "recovered/compact/int8_batch_07/image_ids.json": "504e7c556fe6f4b55aae4e1e4f01fc6373732506bf7adac8453c21e294f3bd14",
+    "recovered/compact/int8_batch_07/run.json": "43b3709645eed2c00dffc3893371b9f8d036546dbfbfc28bfe47be86a8b7e8aa",
+    "recovered/compact/int8_batch_08/image_ids.json": "db087751815a15ff5d96f01fe738148c82fb1497d67613061bdf5f56b066d5c7",
+    "recovered/compact/int8_batch_08/run.json": "50837811d8f3111754d44a51527d129cc6e76b44e378449ef84acfab274a9fdc",
+    "recovered/compact/int8_batch_09/image_ids.json": "237e8335995ec1c23222e3224fc1c05e97f1d111df456c9bda502fac90ad8081",
+    "recovered/compact/int8_batch_09/run.json": "22fdeaa810d2fd2c073a9b7c9cd1a96558298a50a72d15f593b778fa7bf2dae7",
+    "recovered/environment.txt": "7c9b989ea27c1faada3fa6a807955dcfeb446eec06fe32a5b2f130c715e14a54",
+    "recovered/experiment.json": "d629828e210e25cb038342176e7a91d36295a75cd9621ca66155f850f49bfffa",
+    "submitted/MD5SUMS": "d2db75a2ffe3fb684e308e5ff3e05e28278f5d43897276ea0e9ef247766f9a81",
+    "submitted/REPORT.md": "56c17d7c17f9fde1b2cb58aed770b1d75571f9aa3bedf9dd28bc451b479a303f",
+    "submitted/SHA256SUMS": "5f876c9a12bd2a945ae1419622b46239aba2a816f33897f30f30f1013aac197c",
+    "submitted/accuracy_comparison.json": "e4f1b37ac72113425ea6d4e52273536cc089abbf73bb80d407392772b58f8101",
+    "submitted/bundle.identity": "6707b5b8defdd85024f18817989f53a64754dfb18668019c62b9f4a544c6d48f",
+    "submitted/environment.txt": "7c9b989ea27c1faada3fa6a807955dcfeb446eec06fe32a5b2f130c715e14a54",
+    "submitted/experiment.json": "d629828e210e25cb038342176e7a91d36295a75cd9621ca66155f850f49bfffa",
+    "submitted/returned.tar.gz": "99e8f18dc5e6a4f1c5fa92bfe1ecace4ee2fc2d04eab509d9db20ab66199675e"
+  }
+}

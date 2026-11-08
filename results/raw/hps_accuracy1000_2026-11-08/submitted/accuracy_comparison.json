@@ -1,0 +1,39 @@
+{
+  "execution": "DE1-SoC HPS ARMv7 CPU, ncnn, two threads",
+  "fp32": {
+    "n": 1000,
+    "failed": 0,
+    "top1_correct": 849,
+    "top5_correct": 970,
+    "top1_pct": 84.9,
+    "top5_pct": 97.0,
+    "top1_wilson95": [
+      82.54750432083057,
+      86.98538793687767
+    ],
+    "top5_wilson95": [
+      95.74965858524128,
+      97.89062611711653
+    ]
+  },
+  "native_int8": {
+    "n": 1000,
+    "failed": 0,
+    "top1_correct": 836,
+    "top5_correct": 966,
+    "top1_pct": 83.6,
+    "top5_pct": 96.6,
+    "top1_wilson95": [
+      81.17726060331938,
+      85.7655812264513
+    ],
+    "top5_wilson95": [
+      95.28648097546889,
+      97.55686513367738
+    ]
+  },
+  "top1_loss_pp": 1.3000000000000114,
+  "top5_loss_pp": 0.4000000000000057,
+  "native_int8_calibration_n": 10,
+  "note": "Existing ncnn INT8 pilot; not Q1. Paired loss CI and logit metrics require full per-image outputs, omitted from compact transfer."
+}

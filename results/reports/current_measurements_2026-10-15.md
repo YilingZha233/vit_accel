@@ -2,6 +2,9 @@
 
 Status snapshot: 15 October 2026. This is the current measurement report, not a declaration that the complete baseline is finished.
 
+> **Update — 8 November 2026:** The completed 1,000-image HPS accuracy study is now preserved and audited locally. FP32: **84.9% top-1 / 97.0% top-5**; native ncnn INT8: **83.6% / 96.6%**; losses **1.3 / 0.4 percentage points**, zero failures. See the [new measurement report](hps_accuracy1000_2026-11-08.md) and [audit](hps_accuracy1000_2026-11-08_audit.json). Dataset: Kaggle ImageNet-mini validation subset, 676 represented labels; original ten-image INT8 calibration unchanged. The October snapshot below is retained as historical evidence, including its then-pending work.
+
+
 ## Evidence and measurement scope
 
 The matrix-kernel results below come from the locally preserved and audited first board run. Full-model results come from JSON, CSV and terminal output supplied by the team in this conversation. Their raw files currently reside on the Windows/WSL computer; they have not all been independently inspected in this checkout. Rounded values are shown here; preserve raw outputs for exact values.

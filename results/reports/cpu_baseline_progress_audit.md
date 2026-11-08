@@ -1,5 +1,22 @@
 # CPU baseline measurement progress: A–F audit
 
+## Latest progress — 8 November 2026
+
+The [1,000-image HPS report](hps_accuracy1000_2026-11-08.md) and its [numeric audit](hps_accuracy1000_2026-11-08_audit.json) now provide locally preserved full-model accuracy evidence. FP32 top-1/top-5: **84.9% / 97.0%**; native ncnn INT8: **83.6% / 96.6%**. Both completed 1,000 identical images with zero failures. Dataset: Kaggle ImageNet-mini validation subset, 676 represented labels, disjoint recorded calibration hashes; existing ten-image native calibration unchanged.
+
+| Table | Latest status | Remaining work |
+|---|---|---|
+| A: Kernel | Audited synthetic single-thread baseline retained | Real model operands, optimized equivalent arithmetic, complete offload costs |
+| B: Accuracy/quantization | 1,000-image native HPS FP32/INT8 comparison audited; earlier WSL Q1–Q4 pilots recorded | Paired per-image analysis; larger representative calibration; Q1–Q4 larger-set studies if required |
+| C: HPS performance/resources | Earlier FP32/INT8 pilots and INT8 whole-command CPU usage recorded; new eval batch timing/RSS preserved | Controlled repeats, steady-state telemetry, FP32 utilization result, application timing |
+| D: Operator profile | FP32/INT8 operator-group pilots recorded in October measurement report | Verified kernel precision/SIMD coverage; source-stage mapping |
+| E: Fair comparisons | Native accuracy loss and historical CPU precision/thread performance comparisons available | Exact-contract FPGA kernel and integrated model comparisons |
+| F: Architecture/stages | Complete-model HPS execution established | Observed stage boundaries, stage costs/errors, tensor bytes and CPU/FPGA placement |
+
+The earlier model pilots below were supplied conversationally; the new 1,000-image archive is now independently reopened and audited in this checkout. Original images, deployed binaries and full per-image logits are not included in that archive.
+
+## Historical audit — 15 October 2026
+
 Audit prepared 2026-10-15. This records the existing repository kernel evidence
 and the real checkpoint/HPS outputs supplied by the user in this conversation.
 The later raw results are on the user's Windows/WSL computer; they were not
