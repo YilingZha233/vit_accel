@@ -1,0 +1,14 @@
+[
+  {
+    "image": "landscape.png",
+    "tensor": "landscape.bin"
+  },
+  {
+    "image": "portrait.png",
+    "tensor": "portrait.bin"
+  },
+  {
+    "image": "jpeg_landscape.jpg",
+    "tensor": "jpeg_landscape.bin"
+  }
+]
