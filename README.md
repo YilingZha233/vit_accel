@@ -89,3 +89,16 @@ Do not copy a second editable RTL tree into this repository. Agree on a pinned
 hardware commit and update `configs/accelerator_contract.json` plus tests when
 that interface changes. The contract JSON documents assumptions; it does not
 automatically reconfigure the Python or C implementations.
+
+## TinyViT accuracy on the DE1-SoC HPS (November 22, 2026)
+
+The integrated MNN runner evaluated both FP32 models on two HPS CPU threads with zero FPGA jobs. Each model scored all 1,000 ImageNet classes for the same 200 Imagenette validation images (20 per class).
+
+| Model | Top-1 | Top-5 |
+|---|---:|---:|
+| TinyViT-5M | 158/200 (79.0%) | 195/200 (97.5%) |
+| TinyViT-21M | 167/200 (83.5%) | 199/200 (99.5%) |
+
+HPS Linux captures USB camera frames through V4L2, decodes MJPEG to RGB, and prints predictions in the board terminal viewed through PuTTY on Windows. Windows preprocessing appears in the earlier demo recording. For the accuracy test, the board reads saved images and applies the same preprocessing as the live demo: bicubic resize of the shorter side to 256, preserving aspect ratio, followed by a 224 × 224 center crop. It scales RGB to [0, 1], subtracts channel means (0.485, 0.456, 0.406), divides by standard deviations (0.229, 0.224, 0.225), and supplies channel-first FP32 tensors.
+
+See the [accuracy runner and evaluation instructions](https://github.com/YilingZha233/ViT_fpga_accel#hps-accuracy-comparison-on-200-images).
